@@ -40,5 +40,30 @@ router.post("/", async (req, res) => {
   }
 })
 
+router.post("/login", async (req, res) => {
+  connectDb();
+
+  const { email, password} = req.body;
+
+  try{
+    const userDoc = await User.findOne({ email });
+
+    if(userDoc){
+      const passwordCorrect = bcrypt.compareSync(password, userDoc.password);  
+      const {name, _id} = userDoc;
+
+      passwordCorrect 
+      ? res.json({name, email, _id}) 
+      : res.json("Senha invalida!");
+
+    }else{
+      res.status(404).json("Usuario não encontrado")
+    }
+    
+  }catch(error){ 
+  res.status(500).json(error)
+  }
+})
+
 
 export default router;
