@@ -20,6 +20,7 @@
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "hashbnb-youtube": "file:..",
+    "hostbnb": "file:..",
     "image-downloader": "^4.3.0",
     "jsonwebtoken": "^9.0.2",
     "mime-types": "^3.0.1",
