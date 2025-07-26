@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../contexts/UserContext";
+import Logo from "../assets/logo.png";
 
 const Header = () => {
   const { user } = useUserContext();
@@ -9,12 +10,8 @@ const Header = () => {
     <header className="shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8">
         <Link to="/" className="flex items-center">
-          <img
-            className="h-10"
-            src="https://cdn.prod.website-files.com/61b9e0dd381626819c8d4f83/65e2198d48039ba6444f602b_logo%20hashtag%20-%20h.webp"
-            alt="Logo da Hashtag"
-          />
-          <p className="text-primary-400 text-2xl font-bold">ashbnb</p>
+         <img src={Logo} alt="Logo da imagem" className="w-10 h-10"/>
+          <p className="text-primary-400 text-2xl font-bold ml-2">BNB</p>
         </Link>
 
         <Link
@@ -47,7 +44,13 @@ const Header = () => {
           to={user ? "/account/profile" : "/login"}
           className="flex items-center gap-2 rounded-full border border-gray-300 py-2 pr-4 pl-6 shadow-md"
         >
-          <svg
+
+          {user ? (
+                       
+            <div></div>
+
+          ) : (
+            <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
@@ -59,6 +62,8 @@ const Header = () => {
               clipRule="evenodd"
             />
           </svg>
+          )}
+         
 
           <svg
             xmlns="http://www.w3.org/2000/svg"

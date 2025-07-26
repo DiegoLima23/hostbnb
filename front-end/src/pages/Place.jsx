@@ -242,7 +242,7 @@ const Place = () => {
 
               {user ? (
                 <button
-                  className="bg-primary-400 w-full cursor-pointer rounded-full border border-gray-300 px-4 py-2 text-center font-bold text-white"
+                  className="bg-primary-600 hover:bg-primary-400 w-full cursor-pointer rounded-full border border-gray-300 px-4 py-2 text-center font-bold text-white"
                   onClick={handleBooking}
                 >
                   Reservar

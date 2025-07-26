@@ -5,7 +5,7 @@ const Booking = ({ booking, place = false }) => {
   return (
     <Link
       to={`/place/${booking.place._id}`}
-      className={`flex items-center gap-6 rounded-2xl bg-gray-100 p-6 ${place ? "cursor-auto" : ""}`}
+      className={place ? "cursor-auto bg-primary-200 p-6 rounded-2xl " : "flex items-center gap-6 rounded-2xl bg-gray-100 p-8 "}
       key={booking.place._id}
     >
       {place ? (
@@ -20,16 +20,19 @@ const Booking = ({ booking, place = false }) => {
 
       <div className="flex flex-col gap-2">
         {place ? (
-          <p className="text-2xl font-medium">
+          <p className="text-2xl font-bold">
             Você já tem uma reserva para esse lugar!
           </p>
         ) : (
           <p className="text-2xl font-medium">{booking.place.title}</p>
         )}
 
-        <div>
+        {place ? (<p className="font-medium text-xl">Confira nas suas reservas</p>) : (
+         
+          <div>
           <p>
             <span className="font-semibold">Checkin:</span>{" "}
+            
             {new Date(booking.checkin + "GMT-03:00").toLocaleDateString(
               "pt-BR",
             )}
@@ -51,6 +54,10 @@ const Booking = ({ booking, place = false }) => {
             {booking.total.toLocaleString()}
           </p>
         </div>
+
+        )}
+
+       
       </div>
     </Link>
   );
